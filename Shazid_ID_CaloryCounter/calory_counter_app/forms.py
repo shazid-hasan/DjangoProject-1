@@ -14,3 +14,8 @@ class UserForm(UserCreationForm):
     class Meta:
         model=User
         fields=['username','email','password1','password2']
+
+class SignInForm(forms.Form):
+    username=forms.CharField(label='Your Username',widget=forms.TextInput(attrs={'class':'form-control'}))
+    password=forms.CharField(label='Password',widget=forms.PasswordInput(attrs={'class':'form-control'}))
+          
