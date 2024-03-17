@@ -1,6 +1,7 @@
 from django import forms   #this forms import
 from django.contrib.auth.forms import UserCreationForm # to create a user 
 from django.contrib.auth.models import User
+from .models import userUpdate
 
 class UserForm(UserCreationForm):
    
@@ -18,4 +19,8 @@ class UserForm(UserCreationForm):
 class SignInForm(forms.Form):
     username=forms.CharField(label='Your Username',widget=forms.TextInput(attrs={'class':'form-control'}))
     password=forms.CharField(label='Password',widget=forms.PasswordInput(attrs={'class':'form-control'}))
-          
+
+class userUpdateForm(forms.ModelForm):
+    class Meta:
+        model=userUpdate
+        fields=['Name','age','gender','height','weight']          
